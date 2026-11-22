@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@600;700;800;900&family=Oswald:wght@500;600;700&display=swap');
+
+:root {
+  --primary-gold: #e5b869;
+  --primary-gold-light: #f7d58b;
+  --primary-gold-dark: #b88628;
+  --bg-dark: #0a0c0f;
+  --bg-card: #12161c;
+  --bg-card-hover: #181e26;
+  --border-gold: rgba(229, 184, 105, 0.25);
+  --border-card: rgba(255, 255, 255, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--bg-dark);
+  color: #e2e8f0;
+  overflow-x: hidden;
+  selection-background-color: #b88628;
+  selection-color: #ffffff;
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+
+.font-oswald {
+  font-family: 'Oswald', sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0c0f;
+}
+::-webkit-scrollbar-thumb {
+  background: #272f3d;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b88628;
+}
+
+/* Glassmorphism */
+.glass-panel {
+  background: rgba(18, 22, 28, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-card);
+}
+
+.glass-nav {
+  background: rgba(10, 12, 15, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(229, 184, 105, 0.15);
+}
+
+.glass-card {
+  background: linear-gradient(135deg, rgba(24, 30, 38, 0.7) 0%, rgba(14, 17, 22, 0.9) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(229, 184, 105, 0.45);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px -10px rgba(229, 184, 105, 0.15);
+}
+
+/* Gold Gradient Text */
+.gold-text-gradient {
+  background: linear-gradient(135deg, #fff7d6 0%, #e5b869 50%, #c49335 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-border-glow {
+  box-shadow: 0 0 25px -5px rgba(229, 184, 105, 0.35);
+}
+
+/* Hero Badge Pulse */
+@keyframes pulse-slow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+.animate-pulse-slow {
+  animation: pulse-slow 3s infinite ease-in-out;
+}
+
+/* Subtle Floating Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* Barbershop Pole Striped Border (Modern gold-tinted subtle accent) */
+.barber-stripe-accent {
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(229, 184, 105, 0.15),
+    rgba(229, 184, 105, 0.15) 12px,
+    transparent 12px,
+    transparent 24px
+  );
+}
+
+/* Modal Animations */
+.modal-enter {
+  opacity: 0;
+  transform: scale(0.95) translateY(10px);
+}
+.modal-enter-active {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Interactive Radio / Time Slots */
+.time-slot-btn.active {
+  background: linear-gradient(135deg, #e5b869, #b88628);
+  color: #000 !important;
+  font-weight: 700;
+  border-color: #e5b869;
+}
+
+.service-select-card.selected {
+  border-color: #e5b869;
+  background: rgba(229, 184, 105, 0.08);
+  box-shadow: 0 0 15px rgba(229, 184, 105, 0.2);
+}
+
+.barber-select-card.selected {
+  border-color: #e5b869;
+  box-shadow: 0 0 20px rgba(229, 184, 105, 0.3);
+}
+
+/* Toast container styling */
+#toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.toast {
+  animation: toastIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes toastIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
